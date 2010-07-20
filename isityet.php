@@ -29,8 +29,8 @@
 	$year   = 2010;	# eg. 2010
 
 	# Calculation for days left.
-	$seconds = (mktime ($hour,$minute,0,$month,$day,$year) - time());
-	$days    = (int)($seconds/86400);
+	$seconds = mktime($hour,$minute,0,$month,$day,$year) - time();
+	$days    = ceil((mktime(0,0,0,$month,$day,$year) - time())/86400);
 	
 	# Is it yet?
 	if ($seconds <= 0) {
